@@ -1,0 +1,60 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "fuck hummings aqhah: Launch src/main.py",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/main.py",
+      "args": [
+        "https://www.youtube.com/watch?v=doDZM_1PTwc"
+      ],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "fuck hummings aqhah: Launch audio processing",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/generate_segment.py",
+      "args": [
+        "--audio",
+        "examples/cringe.wav",
+        "--model_path",
+        "path/to/humaware_vad.jit",
+        "--out",
+        "examples/cringe.json",
+        "--frame_sec",
+        "0.5",
+        "--hop_sec",
+        "0.25"
+      ],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "fuck hummings aqhah: Read audio",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/segment_audio_test.py",
+      "args": [
+      ],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "fuck hummings aqhah: audio to reduced audio",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/remove_hums_from_audio.py",
+      "args": [
+        "--audio",
+        "examples/cringe_conf_socio/cringe.wav",
+        "--example",
+        "examples/cringe_conf_socio/",
+        "--model_path",
+        "path/to/humaware_vad.jit",
+        "--out",
+        "examples/cringeOUT.wav",
+      ],
+      "console": "integratedTerminal"
+    }
+  ]
+}

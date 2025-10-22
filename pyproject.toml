@@ -1,0 +1,25 @@
+[project]
+name = "fuck-humming"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "lil-sussy",email = "naykeysnet@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13 <3.15"
+dependencies = [
+    "yt-dlp (>=2025.10.14,<2026.0.0)",
+    "torch (>=2.9.0,<3.0.0)",
+    "torchaudio (>=2.9.0,<3.0.0)",
+    "transformers (>=4.57.1,<5.0.0)",
+    "numpy (>=2.3.4,<3.0.0)",
+    "soundfile (>=0.13.1,<0.14.0)",
+    "ffmpeg-python (>=0.2.0,<0.3.0)",
+    "pydub (>=0.25.1,<0.26.0)",
+    "audioop-lts (>=0.2.2,<0.3.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

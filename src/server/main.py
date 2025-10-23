@@ -108,67 +108,105 @@ def _ffmpeg_decode_to_pcm16_wav(input_path: str, output_path: str, target_sr: in
     ]
     subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
+# --- paste into your main.py (replace previous infer_chunk) ---
+from fastapi import Request
 
-@app.post("/infer_chunk", response_model=InferResponse)
-async def infer_chunk(
-    audio_blob: UploadFile = File(...),
-    video_time: float = Form(...),
-    sample_rate: int = Form(None),
-):
+@app.post("/infer_chunk")
+async def infer_chunk(request: Request):
     """
-    Accept an audio chunk and a video_time (chunk start time, seconds).
-    Returns list of labeled segments (absolute timestamps).
+    Robust /infer_chunk endpoint supporting:
+      - multipart/form-data with fields:
+          audio_blob (file), video_time (form), sample_rate (optional form)
+      - raw POST body (application/octet-stream) with query param:
+          /infer_chunk?video_time=12.34[&sample_rate=16000]
+        -> body is treated as raw PCM16 bytes if sample_rate provided,
+           otherwise body is treated as an encoded container and will be
+           written to a temp file and ffmpeg-decoded.
+    Returns JSON:
+      {"labels":[{"label":...,"start":abs_seconds,"end":abs_seconds,"score":...}, ...],
+       "frame_start": video_time}
     """
-    # 1) Save uploaded file to a temp file
-    tmp_dir = tempfile.mkdtemp(prefix="humskip_")
+    import io, wave, json
+    tmp_dir = None
     try:
-        uploaded_path = os.path.join(tmp_dir, "upload")
-        with open(uploaded_path, "wb") as f:
-            f.write(await audio_blob.read())
-
-        # 2) Decide whether uploaded data is raw PCM or needs decoding
-        # Heuristics: if client sent sample_rate param and filename indicates raw blob (no typical container)
-        # For robustness we attempt ffmpeg decode unconditionally (ffmpeg handles raw PCM poorly unless told)
-        decoded_wav = os.path.join(tmp_dir, "decoded.wav")
-        try:
-            _ffmpeg_decode_to_pcm16_wav(uploaded_path, decoded_wav, target_sr=MODEL_SAMPLE_RATE)
-        except subprocess.CalledProcessError as e:
-            # If decode failed, maybe it's already raw PCM16 bytes sent directly.
-            # If sample_rate provided, trust it and use the uploaded bytes as PCM16 LE.
-            if sample_rate:
-                # treat uploaded_path as raw pcm16 little-endian samples
-                with open(uploaded_path, "rb") as rf:
-                    pcm16_bytes = rf.read()
-                # call user function directly with these bytes
-                rel_segments = process_audio_bytes(pcm16_bytes, sample_rate, float(video_time))
-                # Map and return below
-            else:
-                raise HTTPException(status_code=400, detail="Could not decode uploaded audio; ensure ffmpeg supports the format or provide sample_rate for raw PCM.")
+        content_type = (request.headers.get("content-type") or "").lower()
+        # Case A: multipart/form-data (typical browser FormData)
+        if "multipart/form-data" in content_type:
+            form = await request.form()
+            # form can contain UploadFile-like object under 'audio_blob'
+            if "video_time" not in form:
+                raise HTTPException(status_code=400, detail="multipart missing 'video_time' field")
+            video_time = float(form.get("video_time"))
+            sample_rate = form.get("sample_rate")
+            upload = form.get("audio_blob")
+            if upload is None:
+                raise HTTPException(status_code=400, detail="multipart missing 'audio_blob' file")
+            # upload may be starlette UploadFile or a plain bytes-like object
+            try:
+                # UploadFile has .file or .read
+                content = await upload.read()
+            except Exception:
+                # fallback
+                content = upload.file.read() if hasattr(upload, "file") else bytes(upload)
+            # We'll write content to temp file and decode via ffmpeg (most reliable)
+            tmp_dir = tempfile.mkdtemp(prefix="humskip_")
+            uploaded_path = os.path.join(tmp_dir, "upload")
+            with open(uploaded_path, "wb") as f:
+                f.write(content)
+            # Try decode with ffmpeg -> decoded wav path
+            decoded_wav = os.path.join(tmp_dir, "decoded.wav")
+            try:
+                _ffmpeg_decode_to_pcm16_wav(uploaded_path, decoded_wav, target_sr=MODEL_SAMPLE_RATE)
+                # read PCM from decoded wav
+                with wave.open(decoded_wav, "rb") as wavesrc:
+                    frames = wavesrc.readframes(wavesrc.getnframes())
+                    pcm16_bytes = frames
+                    sr = wavesrc.getframerate()
+            except subprocess.CalledProcessError:
+                # if decode fails, but sample_rate was provided, assume raw PCM16
+                if sample_rate:
+                    with open(uploaded_path, "rb") as rf:
+                        pcm16_bytes = rf.read()
+                    sr = int(sample_rate)
+                else:
+                    raise HTTPException(status_code=400, detail="ffmpeg failed to decode uploaded file; provide raw PCM with sample_rate or upload a supported container.")
         else:
-            # 3) If decoding succeeded, read PCM16 samples from decoded_wav
-            with open(decoded_wav, "rb") as wf:
-                # We want raw PCM16 bytes without WAV header. Use ffmpeg to output raw PCM would be another option,
-                # but simplest here: use Python's wave module to extract frames, or call ffmpeg to output raw s16le bytes.
+            # Case B: raw POST body (easier for Tampermonkey)
+            # Expect video_time in query string
+            q = dict(request.query_params)
+            if "video_time" not in q:
+                raise HTTPException(status_code=400, detail="Missing query parameter 'video_time' for raw body POST. Example: /infer_chunk?video_time=12.34")
+            video_time = float(q["video_time"])
+            sample_rate = q.get("sample_rate")
+            body = await request.body()
+            # If sample_rate provided: treat body as raw PCM16 little-endian
+            if sample_rate:
+                pcm16_bytes = body
+                sr = int(sample_rate)
+            else:
+                # Otherwise treat body as encoded container; write to temp file and decode
+                tmp_dir = tempfile.mkdtemp(prefix="humskip_")
+                uploaded_path = os.path.join(tmp_dir, "upload")
+                with open(uploaded_path, "wb") as f:
+                    f.write(body)
+                decoded_wav = os.path.join(tmp_dir, "decoded.wav")
+                try:
+                    _ffmpeg_decode_to_pcm16_wav(uploaded_path, decoded_wav, target_sr=MODEL_SAMPLE_RATE)
+                except subprocess.CalledProcessError:
+                    raise HTTPException(status_code=400, detail="ffmpeg failed to decode raw POST body; provide sample_rate if sending raw PCM, or POST a supported container.")
                 import wave
                 with wave.open(decoded_wav, "rb") as wavesrc:
-                    # Ensure format expectations
-                    channels = wavesrc.getnchannels()
-                    sampwidth = wavesrc.getsampwidth()
-                    sr = wavesrc.getframerate()
-                    nframes = wavesrc.getnframes()
-                    frames = wavesrc.readframes(nframes)
-                    # If stereo, we decoded to mono via ffmpeg -ac 1 so channels==1
-                    # frames is PCM16 LE if sampwidth==2
-                    if sampwidth != 2:
-                        raise HTTPException(status_code=500, detail="Unexpected sample width in decoded WAV.")
+                    frames = wavesrc.readframes(wavesrc.getnframes())
                     pcm16_bytes = frames
-                    # pass to user function with model SR
-                    rel_segments = process_audio_bytes(pcm16_bytes, sr, float(video_time))
+                    sr = wavesrc.getframerate()
 
-        # 4) Map relative segments (returned by process_audio_bytes) to absolute timestamps
-        # Formula (explicit):
-        #   abs_start = video_time + rel_start
-        #   abs_end   = video_time + rel_end
+        # At this point we have pcm16_bytes (PCM16 LE bytes) and sr and video_time
+        # Call your user-provided function which returns RELATIVE segments (seconds)
+        # Note: your function signature earlier was:
+        #   process_audio_bytes(pcm16_bytes: bytes, sample_rate: int, chunk_start_time: float) -> list[dict]
+        rel_segments = process_audio_bytes(pcm16_bytes, sr, float(video_time))
+
+        # Map relative segments to absolute timestamps
         abs_segments = []
         for seg in rel_segments:
             label = seg.get("label", "unknown")
@@ -177,22 +215,25 @@ async def infer_chunk(
             score = float(seg.get("score", 0.0))
             abs_segments.append({
                 "label": label,
-                # absolute times in seconds relative to video
-                "start": video_time + rel_start,
-                "end": video_time + rel_end,
-                "score": score,
+                "start": float(video_time + rel_start),
+                "end": float(video_time + rel_end),
+                "score": score
             })
 
-        # 5) Optionally: merge adjacent same-label segments server-side (simple merge)
-        # For simplicity we return what the model gave (client also merges), but you can merge here.
-        return {"labels": abs_segments, "frame_start": video_time}
-
+        return {"labels": abs_segments, "frame_start": float(video_time)}
+    except HTTPException:
+        # re-raise FastAPI HTTP errors unchanged
+        raise
+    except Exception as e:
+        # Helpful debug info (local dev). If you want less detail, reduce message.
+        raise HTTPException(status_code=500, detail=f"Internal server error: {type(e).__name__}: {str(e)}")
     finally:
-        # cleanup
-        try:
-            shutil.rmtree(tmp_dir)
-        except Exception:
-            pass
+        if tmp_dir:
+            try:
+                shutil.rmtree(tmp_dir)
+            except Exception:
+                pass
+
 
 
 @app.post("/preprocess")

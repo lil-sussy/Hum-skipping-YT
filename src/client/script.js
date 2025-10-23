@@ -1,21 +1,14 @@
-// ==UserScript==
-// @name         HumSkip (Tampermonkey) - capture YouTube audio and skip hums/silences
-// @namespace    https://example.com/humskip
-// @version      0.1.0
-// @description  Capture short audio chunks from YouTube, send to local/remote server, receive timestamps, and smoothly skip unwanted parts.
-// @author       Jettsy
-// @match        *://*.youtube.com/*
-// @grant        GM_xmlhttpRequest
-// @grant        GM_notification
-// @grant        GM_addStyle
-// @connect      127.0.0.1
-// @connect      localhost
-// @connect      *
-// @run-at       document-idle
-// ==/UserScript==
 
 (function () {
-	"use strict";
+  "use strict";
+  if (window.trustedTypes && window.trustedTypes.createPolicy && !window.trustedTypes.defaultPolicy) {
+		window.trustedTypes.createPolicy("default", {
+			createHTML: (string) => string,
+			// Optional, only needed for script (url) tags
+			//,createScriptURL: string => string
+			//,createScript: string => string,
+		});
+	}
 	/*
   humskip.user.js
 
@@ -40,7 +33,7 @@
 */
 	// -------------------- Configuration --------------------
 	const SERVER_URL = "http://127.0.0.1:8887/infer_chunk"; // change to your server endpoint
-	const CHUNK_INTERVAL_SEC = 1.0; // how often to send chunks (seconds)
+	const CHUNK_INTERVAL_SEC = 0.1; // how often to send chunks (seconds)
 	const CHUNK_DURATION_SEC = 1.0; // chunk length in seconds (could equal interval)
 	const MERGE_TOLERANCE_SEC = 0.15; // merge tolerance when joining nearby ranges
 	const ENABLE_AUTO_SKIP_DEFAULT = true;
@@ -100,6 +93,8 @@
 
 	// -------------------- Logging --------------------
 	function pushLog(o) {
+    console.warn("[Tamper monkey - Hum aware skip YT] log :");
+    console.log(o)
 		const logs = JSON.parse(localStorage.getItem("humskip_logs") || "[]");
 		logs.push({ t: Date.now(), ...o });
 		while (logs.length > LOG_MAX) logs.shift();
@@ -253,9 +248,6 @@
 					url: SERVER_URL,
 					binary: true,
 					data: tmp.buffer,
-    //       audio_blob: UploadFile = File(...),
-    // video_time: float = Form(...),
-    // sample_rate: int = Form(None),
 					headers: {
 						"Content-Type": `multipart/form-data; boundary=${boundary}`,
 					},
@@ -289,7 +281,11 @@
 
 	// -------------------- Capture flow --------------------
 	async function startCaptureFlow() {
-		if (captureActive) return true;
+		if (captureActive) {
+      pushLog("Capture is already active");
+			return false;
+		}
+
 		const video = findYouTubeVideo();
 		if (!video) {
 			alert("HumSkip: no video element found on page.");
@@ -297,15 +293,135 @@
 		}
 
 		createUIIfMissing();
+		ui.querySelector("#humskip-status").textContent = "Initializing capture...";
+
 
 		// Request user gesture for audio capture. We'll attempt captureStream first.
 		try {
-			// captureStream gives a MediaStream including audio track representing playback
-			mediaStream = video.captureStream ? video.captureStream() : null;
-		} catch (e) {
-			mediaStream = null;
-		}
+			// Attempt captureStream first
+			let mediaStream = null;
+			if (video.captureStream) {
+				try {
+					mediaStream = video.captureStream();
+				} catch (e) {
+					console.warn("Initial captureStream attempt failed:", e);
+					// Try again after user gesture
+					await new Promise((resolve) => setTimeout(resolve, 500));
+					try {
+						mediaStream = video.captureStream();
+					} catch (e) {
+						console.warn("Second captureStream attempt failed:", e);
+						mediaStream = null;
+					}
+				}
+			}
 
+			if (!mediaStream) {
+				ui.querySelector("#humskip-status").textContent = "captureStream unavailable. Attempting WebAudio fallback.";
+				console.log("Falling back to WebAudio API");
+				return startWebAudioCapture(video);
+			}
+
+			// Initialize MediaRecorder
+			// const mime = MediaRecorder.isTypeSupported("audio/webm;codecs=opus") ? "audio/webm;codecs=opus" : MediaRecorder.isTypeSupported("audio/ogg;codecs=opus") ? "audio/ogg;codecs=opus" : "audio/webm";
+			// Initialize MediaRecorder with supported MIME type
+			const supportedTypes = [];
+			const testTypes = ["audio/webm;codecs=opus", "audio/ogg;codecs=opus", "audio/webm", "audio/ogg"];
+
+			for (const type of testTypes) {
+				if (MediaRecorder.isTypeSupported(type)) {
+					supportedTypes.push(type);
+				}
+			}
+
+			if (supportedTypes.length === 0) {
+				throw new Error("No supported MIME types found");
+			}
+
+			// Try each supported type until one works
+			for (const mimeType of supportedTypes) {
+				try {
+					mediaRecorder = new MediaRecorder(mediaStream, { mimeType });
+					console.log(`Successfully initialized MediaRecorder with MIME type: ${mimeType}`);
+					break;
+				} catch (error) {
+					console.warn(`Failed to initialize with ${mimeType}:`, error);
+					continue;
+				}
+			}
+
+			if (!mediaRecorder) {
+				throw new Error("Failed to initialize MediaRecorder with any supported MIME type");
+			}
+
+			// Setup event handlers
+			mediaRecorder.ondataavailable = async (event) => {
+				if (!event.data || event.data.size === 0) return;
+
+				const chunkId = ++lastSentChunkId;
+				const videoTime = findYouTubeVideo()?.currentTime || 0;
+
+				try {
+					ui.querySelector("#humskip-status").textContent = `sending chunk ${chunkId} @ ${videoTime.toFixed(2)}s`;
+
+					const json = await postChunkToServer({
+						blob: event.data,
+						videoTime,
+						chunkId,
+					});
+
+					const labels = (json.labels || []).map((label) => ({
+						label: label.label || "unknown",
+						start: (label.start || 0) + videoTime,
+						end: (label.end || CHUNK_DURATION_SEC) + videoTime,
+						score: label.score || 0,
+					}));
+
+					pushRanges(labels);
+					ui.querySelector("#humskip-status").textContent = `received ${labels.length} segments`;
+
+					pushLog({
+						event: "recv_segments",
+						chunkId,
+						count: labels.length,
+					});
+				} catch (error) {
+					ui.querySelector("#humskip-status").textContent = `send error: ${error.message || error}`;
+					pushLog({
+						event: "send_error",
+						chunkId,
+						error: String(error),
+					});
+				}
+			};
+
+			mediaRecorder.onerror = (error) => {
+				ui.querySelector("#humskip-status").textContent = "recorder error";
+				pushLog({
+					event: "recorder_error",
+					error: String(error),
+				});
+				cleanupCapture();
+				// Try WebAudio fallback
+				if (!captureActive) {
+					startWebAudioCapture(video);
+				}
+			};
+
+			mediaRecorder.start(Math.round(CHUNK_INTERVAL_SEC * 1000));
+			captureActive = true;
+			ui.querySelector("#humskip-status").textContent = "capturing via MediaRecorder";
+
+			return true;
+		} catch (error) {
+			ui.querySelector("#humskip-status").textContent = "capture failed";
+			pushLog({
+				event: "capture_failed",
+				error: String(error),
+			});
+			cleanupCapture();
+			return false;
+		}
 		if (!mediaStream) {
 			// fallback: ask user to enable a small overlay button to click on the page (user gesture)
 			// Some browsers require video.play() user gesture to allow captureStream.

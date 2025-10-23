@@ -6,7 +6,7 @@ import json
 import math
 import os
 from typing import List, Dict, Tuple, Optional
-from timeline_utils import merge_time_segments, fill_timeline_gaps
+from server.services.timeline_utils import merge_time_segments, fill_timeline_gaps
 import numpy as np
 import soundfile as sf
 

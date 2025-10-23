@@ -60,12 +60,14 @@ import shutil
 import tempfile
 import time
 import uuid
-import video_utils
+import services.youtube_and_audio_utils as youtube_and_audio_utils
+import services.wav_classifier as wav_classifier
 from typing import Dict, Optional
 
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+import services.youtube_and_audio_utils as yt
 
 app = FastAPI(title="HumSkip Local Inference Server (Prototype)")
 
@@ -93,27 +95,8 @@ BASE_OUT_DIR.mkdir(parents=True, exist_ok=True)
 class InferRequest(BaseModel):
     url: str
     video_id: Optional[str] = None
+    client_headers: str
 
-
-def _dummy_processor(video_url: str, out_json_path: str):
-    """
-    Simple fallback: sleep a few seconds and write a trivial JSON with no hums.
-    This keeps the prototype functional if user function is absent.
-    """
-    print(f"[dummy] processing {video_url} ...")
-    time.sleep(2)
-    example = {
-        "video_id": "unknown",
-        "duration": 60.0,
-        "sample_rate": 16000,
-        "segments": [
-            {"label": "speech", "start": 0.0, "end": 60.0, "score": 0.99}
-        ],
-    }
-    with open(out_json_path, "w", encoding="utf-8") as f:
-        json.dump(example, f, indent=2)
-    print(f"[dummy] wrote {out_json_path}")
-    
 
 
 def run_processing_sync(video_url: str, video_id: str, out_json_path: str, job_updater=None):
@@ -124,24 +107,27 @@ def run_processing_sync(video_url: str, video_id: str, out_json_path: str, job_u
     """
     print(f"[five sampling processor] processing {video_url} ...")
     
-    wav_path = video_utils.youtube_dl_wav(video_url)
+    wav_path, video_duration = youtube_and_audio_utils.youtube_dl_wav(video_url, video_id)
+    job_updater and job_updater({"progress": 0.3}) if job_updater else None
+    final_timeline = wav_classifier.five_sampling_classifier(video_id, wav_path)
     
-    example = {
+    output = {
         "video_id": video_id,
-        "duration": 60.0,
+        "duration": video_duration,
         "sample_rate": 16000,
         "segments": [
-            {"label": "speech", "start": 0.0, "end": 60.0, "score": 0.99}
+            {"label": seg[2], "start": seg[0], "end": seg[1], "score": "merged"}
+            for seg in final_timeline
         ],
     }
     with open(out_json_path, "w", encoding="utf-8") as f:
-        json.dump(example, f, indent=2)
+        json.dump(output, f, indent=2)
     print(f"[dummy] wrote {out_json_path}")
     
 
 
 
-async def _start_job(video_url: str, video_id: Optional[str] = None) -> str:
+async def _start_job(video_url: str, client_headers, video_id: Optional[str] = None) -> str:
     """
     Create a job, schedule it on executor, and return job_id.
     """
@@ -174,7 +160,8 @@ async def _start_job(video_url: str, video_id: Optional[str] = None) -> str:
             JOB_STORE[job_id]["status"] = "running"
             JOB_STORE[job_id]["started_at"] = time.time()
             # run synchronous processing (user-supplied) in thread
-            run_processing_sync(video_url, video_id or job_id, out_json)
+            yt.FAKE_YOUTUBE_HEADERS = client_headers
+            run_processing_sync(video_url, video_id or job_id, out_json_path=out_json, job_updater=lambda progress: JOB_STORE[job_id].update(progress))
             # mark done
             JOB_STORE[job_id]["status"] = "done"
             JOB_STORE[job_id]["finished_at"] = time.time()
@@ -198,7 +185,7 @@ async def infer_video(req: InferRequest):
     """
     if not req.url:
         raise HTTPException(status_code=400, detail="`url` required")
-    job_id = await _start_job(req.url, req.video_id)
+    job_id = await _start_job(req.url, req.client_headers, req.video_id)
     return {"job_id": job_id}
 
 

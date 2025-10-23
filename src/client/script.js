@@ -147,12 +147,33 @@
 		return extractVideoIdFromUrl(url);
 	}
 
+  function getYouTubeCookieHeader() {
+		return document.cookie
+			.split(";")
+			.map((c) => c.trim())
+			.join("; ");
+	}
+
+	// Collect essential headers to mimic browser request
+	function getYouTubeClientHeaders() {
+		return {
+			"User-Agent": navigator.userAgent,
+			"Accept-Language": navigator.language || "en-US,en;q=0.9",
+			Referer: window.location.href,
+			Cookie: getYouTubeCookieHeader(),
+			// Add other headers as needed, e.g. 'Origin', 'Connection', 'Accept', ...
+      "Origin": navigator.Origin,
+      "Connection": navigator.connection ? navigator.connection.effectiveType : "unknown",
+      "Accept": navigator.accept || "*/*",
+		};
+	}
+
 	// call server to start job and poll
 	async function sendVideoToServerAndWatch(videoId) {
 		try {
 			ui.setStatus("Submitting video to server...");
 			// POST /infer_video with JSON {url: current_url}
-			const payload = JSON.stringify({ url: window.location.href, video_id: videoId });
+			const payload = JSON.stringify({ url: window.location.href, video_id: videoId, client_headers: JSON.stringify(getYouTubeClientHeaders()) });
 
 			const postRes = await gmFetch({
 				method: "POST",

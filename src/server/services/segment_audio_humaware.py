@@ -330,15 +330,15 @@ def main():
     # 6) Write JSON
     with open(args.out, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2)
-    print(f"[main] Wrote output to {args.out}")
+    print(f"[segment_audio] Wrote output to {args.out}")
 
 def execute(args):
-  # 1) Load audio and resample to model sr if needed
-    print(f"[main] Loading audio: {args.audio}")
+    # 1) Load audio and resample to model sr if needed
+    print(f"[segment_audio] Loading audio: {args.audio}")
     waveform, sr = load_audio_mono(args.audio, target_fs=args.model_sr)
     n_samples = waveform.shape[0]
     duration = n_samples / sr
-    print(f"[main] audio samples={n_samples}, sr={sr}, duration={duration:.3f}s")
+    print(f"[segment_audio] audio samples={n_samples}, sr={sr}, duration={duration:.3f}s")
 
     # 2) Initialize model runner
     runner = ModelRunner(model_path=args.model_path, model_sample_rate=args.model_sr)
@@ -354,7 +354,7 @@ def execute(args):
 
     # 4) Map to absolute segments and merge
     merged = map_frame_detections_to_absolute(detections_per_frame, args.frame_sec, args.hop_sec, sr, merge_tolerance_sec=args.merge_tol)
-    print(f"[main] merged segments: {len(merged)}")
+    print(f"[segment_audio] merged segments: {len(merged)}")
 
     # 5) Optionally filter segments by label / score threshold (example: only hum/silence)
     # For prototype we keep everything.

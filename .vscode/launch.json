@@ -55,6 +55,16 @@
         "examples/cringeOUT.wav",
       ],
       "console": "integratedTerminal"
-    }
+    },
+    {
+      "name": "fuck hummings aqhah: run server",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/server/main.py",
+      "args": [
+        "--host", "127.0.0.1", "--port", "8887", "--reload"
+      ],
+      "console": "integratedTerminal"
+    },
   ]
 }

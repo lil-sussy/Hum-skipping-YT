@@ -29,6 +29,7 @@ import os
 import shutil
 import subprocess
 import tempfile
+import uvicorn
 from typing import List
 
 from fastapi import FastAPI, File, UploadFile, Form, HTTPException
@@ -221,3 +222,7 @@ async def preprocess_file(audio_file: UploadFile = File(...)):
             shutil.rmtree(tmp_dir)
         except Exception:
             pass
+
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="127.0.0.1", port=8887, log_level="debug", access_log=True, use_colors=True)

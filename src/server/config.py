@@ -1,0 +1,1 @@
+CONFIG_VIDEO_CACHE = "~/.cache/humaware-yt-skip/videos/"

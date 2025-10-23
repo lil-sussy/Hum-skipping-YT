@@ -11,6 +11,6 @@
 // @connect      127.0.0.1
 // @require      file:///home/Jettsy/Desktop/devlab/Hum-skipping-YT/src/client/script.js
 // @connect      localhost
-// @connect      *
+// @connect      127.0.0.1:8887
 // @run-at       document-idle
 // ==/UserScript==

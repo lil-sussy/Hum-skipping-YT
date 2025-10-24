@@ -16,9 +16,12 @@
       "type": "debugpy",
       "request": "launch",
       "program": "${workspaceFolder}/src/test/audio_file_classification.py",
-      "args": [
-      ],
-      "console": "integratedTerminal"
-    },
+      "args": [],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}/src",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/src"
+      }
+    }
   ]
 }

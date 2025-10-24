@@ -103,5 +103,17 @@ class AudioClassifier:
     
     def save_json(self, results: List[Dict], output_path: str):
         """Save classification results to JSON file."""
+        # Convert float32 values to regular floats
+        def convert_floats(obj):
+            if isinstance(obj, np.float32):
+                return float(obj)
+            elif isinstance(obj, dict):
+                return {key: convert_floats(value) for key, value in obj.items()}
+            elif isinstance(obj, list):
+                return [convert_floats(item) for item in obj]
+            return obj
+
+        converted_results = convert_floats(results)
+        
         with open(output_path, 'w') as f:
-            json.dump(results, f, indent=2)
+            json.dump(converted_results, f, indent=2)

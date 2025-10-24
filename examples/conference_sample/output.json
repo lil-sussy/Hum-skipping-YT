@@ -1,0 +1,2112 @@
+[
+  {
+    "start_time": 0.0,
+    "end_time": 0.5,
+    "classification": "silence",
+    "features": {
+      "energy": 0.012302982620894909,
+      "spectral_rolloff": 1114.1732283464567,
+      "zero_crossing_rate": 0.042144775390625
+    }
+  },
+  {
+    "start_time": 0.5,
+    "end_time": 1.0,
+    "classification": "silence",
+    "features": {
+      "energy": 0.008841550908982754,
+      "spectral_rolloff": 1055.1181102362204,
+      "zero_crossing_rate": 0.034637451171875
+    }
+  },
+  {
+    "start_time": 1.0,
+    "end_time": 1.5,
+    "classification": "silence",
+    "features": {
+      "energy": 0.00611703097820282,
+      "spectral_rolloff": 1019.6850393700787,
+      "zero_crossing_rate": 0.0352783203125
+    }
+  },
+  {
+    "start_time": 1.5,
+    "end_time": 2.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.03780682384967804,
+      "spectral_rolloff": 1940.9448818897638,
+      "zero_crossing_rate": 0.127777099609375
+    }
+  },
+  {
+    "start_time": 2.0,
+    "end_time": 2.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.0994001179933548,
+      "spectral_rolloff": 1425.1968503937007,
+      "zero_crossing_rate": 0.07244873046875
+    }
+  },
+  {
+    "start_time": 2.5,
+    "end_time": 3.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07650067657232285,
+      "spectral_rolloff": 2267.716535433071,
+      "zero_crossing_rate": 0.181549072265625
+    }
+  },
+  {
+    "start_time": 3.0,
+    "end_time": 3.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.09942247718572617,
+      "spectral_rolloff": 870.0787401574803,
+      "zero_crossing_rate": 0.032135009765625
+    }
+  },
+  {
+    "start_time": 3.5,
+    "end_time": 4.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.08387847989797592,
+      "spectral_rolloff": 1759.8425196850394,
+      "zero_crossing_rate": 0.113250732421875
+    }
+  },
+  {
+    "start_time": 4.0,
+    "end_time": 4.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.08100877702236176,
+      "spectral_rolloff": 3500.0,
+      "zero_crossing_rate": 0.2762451171875
+    }
+  },
+  {
+    "start_time": 4.5,
+    "end_time": 5.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07644364982843399,
+      "spectral_rolloff": 1771.6535433070867,
+      "zero_crossing_rate": 0.145782470703125
+    }
+  },
+  {
+    "start_time": 5.0,
+    "end_time": 5.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07847028970718384,
+      "spectral_rolloff": 2704.7244094488187,
+      "zero_crossing_rate": 0.153106689453125
+    }
+  },
+  {
+    "start_time": 5.5,
+    "end_time": 6.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07293426245450974,
+      "spectral_rolloff": 1031.496062992126,
+      "zero_crossing_rate": 0.05206298828125
+    }
+  },
+  {
+    "start_time": 6.0,
+    "end_time": 6.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.06763219088315964,
+      "spectral_rolloff": 728.3464566929133,
+      "zero_crossing_rate": 0.02691650390625
+    }
+  },
+  {
+    "start_time": 6.5,
+    "end_time": 7.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.09699210524559021,
+      "spectral_rolloff": 728.3464566929135,
+      "zero_crossing_rate": 0.068145751953125
+    }
+  },
+  {
+    "start_time": 7.0,
+    "end_time": 7.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.09688946604728699,
+      "spectral_rolloff": 1125.984251968504,
+      "zero_crossing_rate": 0.10174560546875
+    }
+  },
+  {
+    "start_time": 7.5,
+    "end_time": 8.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.04327143728733063,
+      "spectral_rolloff": 3633.8582677165355,
+      "zero_crossing_rate": 0.211212158203125
+    }
+  },
+  {
+    "start_time": 8.0,
+    "end_time": 8.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.04816950112581253,
+      "spectral_rolloff": 3677.1653543307093,
+      "zero_crossing_rate": 0.235565185546875
+    }
+  },
+  {
+    "start_time": 8.5,
+    "end_time": 9.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.09125617891550064,
+      "spectral_rolloff": 1559.0551181102362,
+      "zero_crossing_rate": 0.0941162109375
+    }
+  },
+  {
+    "start_time": 9.0,
+    "end_time": 9.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.12772482633590698,
+      "spectral_rolloff": 960.6299212598426,
+      "zero_crossing_rate": 0.0355224609375
+    }
+  },
+  {
+    "start_time": 9.5,
+    "end_time": 10.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.06868273764848709,
+      "spectral_rolloff": 4027.5590551181103,
+      "zero_crossing_rate": 0.2987060546875
+    }
+  },
+  {
+    "start_time": 10.0,
+    "end_time": 10.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.06665371358394623,
+      "spectral_rolloff": 1059.0551181102364,
+      "zero_crossing_rate": 0.0628662109375
+    }
+  },
+  {
+    "start_time": 10.5,
+    "end_time": 11.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.0596313402056694,
+      "spectral_rolloff": 2118.110236220473,
+      "zero_crossing_rate": 0.120941162109375
+    }
+  },
+  {
+    "start_time": 11.0,
+    "end_time": 11.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07475261390209198,
+      "spectral_rolloff": 2350.393700787402,
+      "zero_crossing_rate": 0.182159423828125
+    }
+  },
+  {
+    "start_time": 11.5,
+    "end_time": 12.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.05867764353752136,
+      "spectral_rolloff": 1401.5748031496064,
+      "zero_crossing_rate": 0.0826416015625
+    }
+  },
+  {
+    "start_time": 12.0,
+    "end_time": 12.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07371220737695694,
+      "spectral_rolloff": 2409.4488188976375,
+      "zero_crossing_rate": 0.170379638671875
+    }
+  },
+  {
+    "start_time": 12.5,
+    "end_time": 13.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.09591121226549149,
+      "spectral_rolloff": 1775.5905511811025,
+      "zero_crossing_rate": 0.13043212890625
+    }
+  },
+  {
+    "start_time": 13.0,
+    "end_time": 13.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.06470745801925659,
+      "spectral_rolloff": 2377.952755905512,
+      "zero_crossing_rate": 0.166046142578125
+    }
+  },
+  {
+    "start_time": 13.5,
+    "end_time": 14.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.08284896612167358,
+      "spectral_rolloff": 1866.141732283465,
+      "zero_crossing_rate": 0.0849609375
+    }
+  },
+  {
+    "start_time": 14.0,
+    "end_time": 14.5,
+    "classification": "silence",
+    "features": {
+      "energy": 0.031176060438156128,
+      "spectral_rolloff": 2759.8425196850394,
+      "zero_crossing_rate": 0.2025146484375
+    }
+  },
+  {
+    "start_time": 14.5,
+    "end_time": 15.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.08027666807174683,
+      "spectral_rolloff": 2334.645669291339,
+      "zero_crossing_rate": 0.19879150390625
+    }
+  },
+  {
+    "start_time": 15.0,
+    "end_time": 15.5,
+    "classification": "silence",
+    "features": {
+      "energy": 0.02210841327905655,
+      "spectral_rolloff": 1976.3779527559054,
+      "zero_crossing_rate": 0.17144775390625
+    }
+  },
+  {
+    "start_time": 15.5,
+    "end_time": 16.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.06452776491641998,
+      "spectral_rolloff": 2031.496062992126,
+      "zero_crossing_rate": 0.164031982421875
+    }
+  },
+  {
+    "start_time": 16.0,
+    "end_time": 16.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.03848721459507942,
+      "spectral_rolloff": 2992.1259842519685,
+      "zero_crossing_rate": 0.189361572265625
+    }
+  },
+  {
+    "start_time": 16.5,
+    "end_time": 17.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.06292683631181717,
+      "spectral_rolloff": 3771.6535433070867,
+      "zero_crossing_rate": 0.2403564453125
+    }
+  },
+  {
+    "start_time": 17.0,
+    "end_time": 17.5,
+    "classification": "speech",
+    "features": {
+      "energy": 0.10871920734643936,
+      "spectral_rolloff": 1011.8110236220473,
+      "zero_crossing_rate": 0.065704345703125
+    }
+  },
+  {
+    "start_time": 17.5,
+    "end_time": 18.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07245402038097382,
+      "spectral_rolloff": 1913.3858267716535,
+      "zero_crossing_rate": 0.11376953125
+    }
+  },
+  {
+    "start_time": 18.0,
+    "end_time": 18.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.12239129841327667,
+      "spectral_rolloff": 826.7716535433071,
+      "zero_crossing_rate": 0.036102294921875
+    }
+  },
+  {
+    "start_time": 18.5,
+    "end_time": 19.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.0843128189444542,
+      "spectral_rolloff": 1996.0629921259842,
+      "zero_crossing_rate": 0.189208984375
+    }
+  },
+  {
+    "start_time": 19.0,
+    "end_time": 19.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.05991422384977341,
+      "spectral_rolloff": 1452.7559055118109,
+      "zero_crossing_rate": 0.056732177734375
+    }
+  },
+  {
+    "start_time": 19.5,
+    "end_time": 20.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07745024561882019,
+      "spectral_rolloff": 2724.4094488188975,
+      "zero_crossing_rate": 0.1864013671875
+    }
+  },
+  {
+    "start_time": 20.0,
+    "end_time": 20.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.06333912163972855,
+      "spectral_rolloff": 1551.1811023622047,
+      "zero_crossing_rate": 0.115875244140625
+    }
+  },
+  {
+    "start_time": 20.5,
+    "end_time": 21.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.06730155646800995,
+      "spectral_rolloff": 2019.6850393700788,
+      "zero_crossing_rate": 0.093963623046875
+    }
+  },
+  {
+    "start_time": 21.0,
+    "end_time": 21.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.040026839822530746,
+      "spectral_rolloff": 4192.913385826771,
+      "zero_crossing_rate": 0.2603759765625
+    }
+  },
+  {
+    "start_time": 21.5,
+    "end_time": 22.0,
+    "classification": "speech",
+    "features": {
+      "energy": 0.10833961516618729,
+      "spectral_rolloff": 2696.8503937007877,
+      "zero_crossing_rate": 0.17498779296875
+    }
+  },
+  {
+    "start_time": 22.0,
+    "end_time": 22.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07203562557697296,
+      "spectral_rolloff": 2409.448818897638,
+      "zero_crossing_rate": 0.1654052734375
+    }
+  },
+  {
+    "start_time": 22.5,
+    "end_time": 23.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07523033022880554,
+      "spectral_rolloff": 1637.7952755905512,
+      "zero_crossing_rate": 0.07354736328125
+    }
+  },
+  {
+    "start_time": 23.0,
+    "end_time": 23.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.062403783202171326,
+      "spectral_rolloff": 2618.1102362204724,
+      "zero_crossing_rate": 0.17840576171875
+    }
+  },
+  {
+    "start_time": 23.5,
+    "end_time": 24.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.036556556820869446,
+      "spectral_rolloff": 909.4488188976378,
+      "zero_crossing_rate": 0.052734375
+    }
+  },
+  {
+    "start_time": 24.0,
+    "end_time": 24.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.09164674580097198,
+      "spectral_rolloff": 2393.700787401575,
+      "zero_crossing_rate": 0.205810546875
+    }
+  },
+  {
+    "start_time": 24.5,
+    "end_time": 25.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.052954886108636856,
+      "spectral_rolloff": 779.5275590551181,
+      "zero_crossing_rate": 0.113739013671875
+    }
+  },
+  {
+    "start_time": 25.0,
+    "end_time": 25.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07885012775659561,
+      "spectral_rolloff": 2122.047244094488,
+      "zero_crossing_rate": 0.118072509765625
+    }
+  },
+  {
+    "start_time": 25.5,
+    "end_time": 26.0,
+    "classification": "speech",
+    "features": {
+      "energy": 0.11608066409826279,
+      "spectral_rolloff": 1326.7716535433071,
+      "zero_crossing_rate": 0.060089111328125
+    }
+  },
+  {
+    "start_time": 26.0,
+    "end_time": 26.5,
+    "classification": "silence",
+    "features": {
+      "energy": 0.016251178458333015,
+      "spectral_rolloff": 3070.8661417322837,
+      "zero_crossing_rate": 0.143524169921875
+    }
+  },
+  {
+    "start_time": 26.5,
+    "end_time": 27.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.08146446943283081,
+      "spectral_rolloff": 1988.1889763779527,
+      "zero_crossing_rate": 0.13360595703125
+    }
+  },
+  {
+    "start_time": 27.0,
+    "end_time": 27.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.06495875865221024,
+      "spectral_rolloff": 2968.503937007874,
+      "zero_crossing_rate": 0.26226806640625
+    }
+  },
+  {
+    "start_time": 27.5,
+    "end_time": 28.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.09772838652133942,
+      "spectral_rolloff": 1200.7874015748032,
+      "zero_crossing_rate": 0.0462646484375
+    }
+  },
+  {
+    "start_time": 28.0,
+    "end_time": 28.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07218784838914871,
+      "spectral_rolloff": 2889.7637795275587,
+      "zero_crossing_rate": 0.22833251953125
+    }
+  },
+  {
+    "start_time": 28.5,
+    "end_time": 29.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07059425115585327,
+      "spectral_rolloff": 3192.913385826772,
+      "zero_crossing_rate": 0.227020263671875
+    }
+  },
+  {
+    "start_time": 29.0,
+    "end_time": 29.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07636488229036331,
+      "spectral_rolloff": 2066.929133858268,
+      "zero_crossing_rate": 0.14031982421875
+    }
+  },
+  {
+    "start_time": 29.5,
+    "end_time": 30.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.04033883661031723,
+      "spectral_rolloff": 3787.4015748031497,
+      "zero_crossing_rate": 0.297576904296875
+    }
+  },
+  {
+    "start_time": 30.0,
+    "end_time": 30.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.09514381736516953,
+      "spectral_rolloff": 2326.7716535433074,
+      "zero_crossing_rate": 0.168670654296875
+    }
+  },
+  {
+    "start_time": 30.5,
+    "end_time": 31.0,
+    "classification": "silence",
+    "features": {
+      "energy": 0.02686476707458496,
+      "spectral_rolloff": 2830.708661417323,
+      "zero_crossing_rate": 0.127410888671875
+    }
+  },
+  {
+    "start_time": 31.0,
+    "end_time": 31.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.0986245796084404,
+      "spectral_rolloff": 2370.0787401574803,
+      "zero_crossing_rate": 0.145721435546875
+    }
+  },
+  {
+    "start_time": 31.5,
+    "end_time": 32.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.09024081379175186,
+      "spectral_rolloff": 2314.9606299212596,
+      "zero_crossing_rate": 0.163726806640625
+    }
+  },
+  {
+    "start_time": 32.0,
+    "end_time": 32.5,
+    "classification": "speech",
+    "features": {
+      "energy": 0.10886647552251816,
+      "spectral_rolloff": 1393.7007874015749,
+      "zero_crossing_rate": 0.1099853515625
+    }
+  },
+  {
+    "start_time": 32.5,
+    "end_time": 33.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07810226082801819,
+      "spectral_rolloff": 1027.5590551181103,
+      "zero_crossing_rate": 0.0401611328125
+    }
+  },
+  {
+    "start_time": 33.0,
+    "end_time": 33.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.0766223818063736,
+      "spectral_rolloff": 1232.283464566929,
+      "zero_crossing_rate": 0.048614501953125
+    }
+  },
+  {
+    "start_time": 33.5,
+    "end_time": 34.0,
+    "classification": "silence",
+    "features": {
+      "energy": 0.016045376658439636,
+      "spectral_rolloff": 4433.070866141732,
+      "zero_crossing_rate": 0.2933349609375
+    }
+  },
+  {
+    "start_time": 34.0,
+    "end_time": 34.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.08298098295927048,
+      "spectral_rolloff": 2598.425196850394,
+      "zero_crossing_rate": 0.1512451171875
+    }
+  },
+  {
+    "start_time": 34.5,
+    "end_time": 35.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.09925268590450287,
+      "spectral_rolloff": 2212.5984251968503,
+      "zero_crossing_rate": 0.156158447265625
+    }
+  },
+  {
+    "start_time": 35.0,
+    "end_time": 35.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.09380017220973969,
+      "spectral_rolloff": 1074.8031496062993,
+      "zero_crossing_rate": 0.047607421875
+    }
+  },
+  {
+    "start_time": 35.5,
+    "end_time": 36.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.09555681049823761,
+      "spectral_rolloff": 1141.732283464567,
+      "zero_crossing_rate": 0.0556640625
+    }
+  },
+  {
+    "start_time": 36.0,
+    "end_time": 36.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.036028385162353516,
+      "spectral_rolloff": 968.5039370078739,
+      "zero_crossing_rate": 0.0372314453125
+    }
+  },
+  {
+    "start_time": 36.5,
+    "end_time": 37.0,
+    "classification": "silence",
+    "features": {
+      "energy": 0.017106058076024055,
+      "spectral_rolloff": 1960.6299212598426,
+      "zero_crossing_rate": 0.1007080078125
+    }
+  },
+  {
+    "start_time": 37.0,
+    "end_time": 37.5,
+    "classification": "silence",
+    "features": {
+      "energy": 0.02682487852871418,
+      "spectral_rolloff": 2448.8188976377955,
+      "zero_crossing_rate": 0.16009521484375
+    }
+  },
+  {
+    "start_time": 37.5,
+    "end_time": 38.0,
+    "classification": "silence",
+    "features": {
+      "energy": 0.029131226241588593,
+      "spectral_rolloff": 1358.2677165354332,
+      "zero_crossing_rate": 0.065399169921875
+    }
+  },
+  {
+    "start_time": 38.0,
+    "end_time": 38.5,
+    "classification": "speech",
+    "features": {
+      "energy": 0.11263550817966461,
+      "spectral_rolloff": 940.9448818897638,
+      "zero_crossing_rate": 0.11077880859375
+    }
+  },
+  {
+    "start_time": 38.5,
+    "end_time": 39.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.129277765750885,
+      "spectral_rolloff": 1409.4488188976377,
+      "zero_crossing_rate": 0.047119140625
+    }
+  },
+  {
+    "start_time": 39.0,
+    "end_time": 39.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.075508251786232,
+      "spectral_rolloff": 1307.0866141732283,
+      "zero_crossing_rate": 0.08306884765625
+    }
+  },
+  {
+    "start_time": 39.5,
+    "end_time": 40.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.050269026309251785,
+      "spectral_rolloff": 2000.0,
+      "zero_crossing_rate": 0.129974365234375
+    }
+  },
+  {
+    "start_time": 40.0,
+    "end_time": 40.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07776983827352524,
+      "spectral_rolloff": 2515.748031496063,
+      "zero_crossing_rate": 0.214752197265625
+    }
+  },
+  {
+    "start_time": 40.5,
+    "end_time": 41.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.09445788711309433,
+      "spectral_rolloff": 2874.0157480314965,
+      "zero_crossing_rate": 0.199951171875
+    }
+  },
+  {
+    "start_time": 41.0,
+    "end_time": 41.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.05870973691344261,
+      "spectral_rolloff": 2011.8110236220473,
+      "zero_crossing_rate": 0.152191162109375
+    }
+  },
+  {
+    "start_time": 41.5,
+    "end_time": 42.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.06828616559505463,
+      "spectral_rolloff": 1484.2519685039372,
+      "zero_crossing_rate": 0.079833984375
+    }
+  },
+  {
+    "start_time": 42.0,
+    "end_time": 42.5,
+    "classification": "silence",
+    "features": {
+      "energy": 0.029508540406823158,
+      "spectral_rolloff": 1889.763779527559,
+      "zero_crossing_rate": 0.122528076171875
+    }
+  },
+  {
+    "start_time": 42.5,
+    "end_time": 43.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07088223099708557,
+      "spectral_rolloff": 3177.165354330709,
+      "zero_crossing_rate": 0.262725830078125
+    }
+  },
+  {
+    "start_time": 43.0,
+    "end_time": 43.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.09759107977151871,
+      "spectral_rolloff": 2015.748031496063,
+      "zero_crossing_rate": 0.114715576171875
+    }
+  },
+  {
+    "start_time": 43.5,
+    "end_time": 44.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.08082002401351929,
+      "spectral_rolloff": 2169.2913385826773,
+      "zero_crossing_rate": 0.11273193359375
+    }
+  },
+  {
+    "start_time": 44.0,
+    "end_time": 44.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.08824009448289871,
+      "spectral_rolloff": 1366.1417322834645,
+      "zero_crossing_rate": 0.069671630859375
+    }
+  },
+  {
+    "start_time": 44.5,
+    "end_time": 45.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.05661923810839653,
+      "spectral_rolloff": 2566.929133858268,
+      "zero_crossing_rate": 0.136749267578125
+    }
+  },
+  {
+    "start_time": 45.0,
+    "end_time": 45.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07951760292053223,
+      "spectral_rolloff": 1665.3543307086616,
+      "zero_crossing_rate": 0.08404541015625
+    }
+  },
+  {
+    "start_time": 45.5,
+    "end_time": 46.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.08588279783725739,
+      "spectral_rolloff": 1007.8740157480315,
+      "zero_crossing_rate": 0.03271484375
+    }
+  },
+  {
+    "start_time": 46.0,
+    "end_time": 46.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.11329211294651031,
+      "spectral_rolloff": 779.5275590551182,
+      "zero_crossing_rate": 0.04248046875
+    }
+  },
+  {
+    "start_time": 46.5,
+    "end_time": 47.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.09487509727478027,
+      "spectral_rolloff": 724.4094488188977,
+      "zero_crossing_rate": 0.028106689453125
+    }
+  },
+  {
+    "start_time": 47.0,
+    "end_time": 47.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.09977369755506516,
+      "spectral_rolloff": 842.5196850393702,
+      "zero_crossing_rate": 0.036590576171875
+    }
+  },
+  {
+    "start_time": 47.5,
+    "end_time": 48.0,
+    "classification": "speech",
+    "features": {
+      "energy": 0.10331443697214127,
+      "spectral_rolloff": 1696.8503937007877,
+      "zero_crossing_rate": 0.12933349609375
+    }
+  },
+  {
+    "start_time": 48.0,
+    "end_time": 48.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.0934082567691803,
+      "spectral_rolloff": 818.8976377952756,
+      "zero_crossing_rate": 0.03076171875
+    }
+  },
+  {
+    "start_time": 48.5,
+    "end_time": 49.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.0635886862874031,
+      "spectral_rolloff": 3503.9370078740158,
+      "zero_crossing_rate": 0.275390625
+    }
+  },
+  {
+    "start_time": 49.0,
+    "end_time": 49.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.08159849792718887,
+      "spectral_rolloff": 3539.3700787401576,
+      "zero_crossing_rate": 0.263458251953125
+    }
+  },
+  {
+    "start_time": 49.5,
+    "end_time": 50.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.05771685764193535,
+      "spectral_rolloff": 2059.055118110236,
+      "zero_crossing_rate": 0.1549072265625
+    }
+  },
+  {
+    "start_time": 50.0,
+    "end_time": 50.5,
+    "classification": "silence",
+    "features": {
+      "energy": 0.019656382501125336,
+      "spectral_rolloff": 3751.9685039370083,
+      "zero_crossing_rate": 0.217193603515625
+    }
+  },
+  {
+    "start_time": 50.5,
+    "end_time": 51.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.09184327721595764,
+      "spectral_rolloff": 2263.779527559055,
+      "zero_crossing_rate": 0.17376708984375
+    }
+  },
+  {
+    "start_time": 51.0,
+    "end_time": 51.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.0849640816450119,
+      "spectral_rolloff": 2960.629921259843,
+      "zero_crossing_rate": 0.208648681640625
+    }
+  },
+  {
+    "start_time": 51.5,
+    "end_time": 52.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07028903812170029,
+      "spectral_rolloff": 1625.984251968504,
+      "zero_crossing_rate": 0.0809326171875
+    }
+  },
+  {
+    "start_time": 52.0,
+    "end_time": 52.5,
+    "classification": "silence",
+    "features": {
+      "energy": 0.009303191676735878,
+      "spectral_rolloff": 4102.36220472441,
+      "zero_crossing_rate": 0.237701416015625
+    }
+  },
+  {
+    "start_time": 52.5,
+    "end_time": 53.0,
+    "classification": "speech",
+    "features": {
+      "energy": 0.10008825361728668,
+      "spectral_rolloff": 1972.4409448818897,
+      "zero_crossing_rate": 0.177490234375
+    }
+  },
+  {
+    "start_time": 53.0,
+    "end_time": 53.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.10531824082136154,
+      "spectral_rolloff": 988.1889763779528,
+      "zero_crossing_rate": 0.03643798828125
+    }
+  },
+  {
+    "start_time": 53.5,
+    "end_time": 54.0,
+    "classification": "speech",
+    "features": {
+      "energy": 0.12256085127592087,
+      "spectral_rolloff": 838.5826771653543,
+      "zero_crossing_rate": 0.062103271484375
+    }
+  },
+  {
+    "start_time": 54.0,
+    "end_time": 54.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.09588730335235596,
+      "spectral_rolloff": 1940.9448818897638,
+      "zero_crossing_rate": 0.147979736328125
+    }
+  },
+  {
+    "start_time": 54.5,
+    "end_time": 55.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.06327223777770996,
+      "spectral_rolloff": 2177.1653543307084,
+      "zero_crossing_rate": 0.122283935546875
+    }
+  },
+  {
+    "start_time": 55.0,
+    "end_time": 55.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07228805869817734,
+      "spectral_rolloff": 2503.9370078740158,
+      "zero_crossing_rate": 0.18017578125
+    }
+  },
+  {
+    "start_time": 55.5,
+    "end_time": 56.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07854160666465759,
+      "spectral_rolloff": 5476.377952755905,
+      "zero_crossing_rate": 0.40850830078125
+    }
+  },
+  {
+    "start_time": 56.0,
+    "end_time": 56.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.05105529725551605,
+      "spectral_rolloff": 5129.92125984252,
+      "zero_crossing_rate": 0.41448974609375
+    }
+  },
+  {
+    "start_time": 56.5,
+    "end_time": 57.0,
+    "classification": "speech",
+    "features": {
+      "energy": 0.11992257088422775,
+      "spectral_rolloff": 795.2755905511812,
+      "zero_crossing_rate": 0.114990234375
+    }
+  },
+  {
+    "start_time": 57.0,
+    "end_time": 57.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.08856652677059174,
+      "spectral_rolloff": 1972.4409448818897,
+      "zero_crossing_rate": 0.15057373046875
+    }
+  },
+  {
+    "start_time": 57.5,
+    "end_time": 58.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.08291251957416534,
+      "spectral_rolloff": 1807.0866141732286,
+      "zero_crossing_rate": 0.10260009765625
+    }
+  },
+  {
+    "start_time": 58.0,
+    "end_time": 58.5,
+    "classification": "speech",
+    "features": {
+      "energy": 0.10039708018302917,
+      "spectral_rolloff": 1220.472440944882,
+      "zero_crossing_rate": 0.057220458984375
+    }
+  },
+  {
+    "start_time": 58.5,
+    "end_time": 59.0,
+    "classification": "silence",
+    "features": {
+      "energy": 0.029979880899190903,
+      "spectral_rolloff": 4185.03937007874,
+      "zero_crossing_rate": 0.269012451171875
+    }
+  },
+  {
+    "start_time": 59.0,
+    "end_time": 59.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.09969919919967651,
+      "spectral_rolloff": 1657.48031496063,
+      "zero_crossing_rate": 0.084014892578125
+    }
+  },
+  {
+    "start_time": 59.5,
+    "end_time": 60.0,
+    "classification": "speech",
+    "features": {
+      "energy": 0.11031410098075867,
+      "spectral_rolloff": 1299.212598425197,
+      "zero_crossing_rate": 0.090118408203125
+    }
+  },
+  {
+    "start_time": 60.0,
+    "end_time": 60.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07117447257041931,
+      "spectral_rolloff": 1960.6299212598426,
+      "zero_crossing_rate": 0.183837890625
+    }
+  },
+  {
+    "start_time": 60.5,
+    "end_time": 61.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.05272288620471954,
+      "spectral_rolloff": 2791.3385826771655,
+      "zero_crossing_rate": 0.17950439453125
+    }
+  },
+  {
+    "start_time": 61.0,
+    "end_time": 61.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07347995042800903,
+      "spectral_rolloff": 1842.51968503937,
+      "zero_crossing_rate": 0.111572265625
+    }
+  },
+  {
+    "start_time": 61.5,
+    "end_time": 62.0,
+    "classification": "silence",
+    "features": {
+      "energy": 0.030690373852849007,
+      "spectral_rolloff": 2551.181102362205,
+      "zero_crossing_rate": 0.1944580078125
+    }
+  },
+  {
+    "start_time": 62.0,
+    "end_time": 62.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.15757513046264648,
+      "spectral_rolloff": 775.5905511811025,
+      "zero_crossing_rate": 0.03826904296875
+    }
+  },
+  {
+    "start_time": 62.5,
+    "end_time": 63.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.08994889259338379,
+      "spectral_rolloff": 1598.4251968503936,
+      "zero_crossing_rate": 0.092071533203125
+    }
+  },
+  {
+    "start_time": 63.0,
+    "end_time": 63.5,
+    "classification": "speech",
+    "features": {
+      "energy": 0.10375155508518219,
+      "spectral_rolloff": 1460.6299212598426,
+      "zero_crossing_rate": 0.103057861328125
+    }
+  },
+  {
+    "start_time": 63.5,
+    "end_time": 64.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.06554414331912994,
+      "spectral_rolloff": 2157.48031496063,
+      "zero_crossing_rate": 0.18109130859375
+    }
+  },
+  {
+    "start_time": 64.0,
+    "end_time": 64.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.09353082627058029,
+      "spectral_rolloff": 1602.3622047244096,
+      "zero_crossing_rate": 0.124481201171875
+    }
+  },
+  {
+    "start_time": 64.5,
+    "end_time": 65.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.09141573309898376,
+      "spectral_rolloff": 1519.6850393700788,
+      "zero_crossing_rate": 0.121612548828125
+    }
+  },
+  {
+    "start_time": 65.0,
+    "end_time": 65.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.03800160810351372,
+      "spectral_rolloff": 2736.220472440945,
+      "zero_crossing_rate": 0.194000244140625
+    }
+  },
+  {
+    "start_time": 65.5,
+    "end_time": 66.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.08556145429611206,
+      "spectral_rolloff": 1700.787401574803,
+      "zero_crossing_rate": 0.075714111328125
+    }
+  },
+  {
+    "start_time": 66.0,
+    "end_time": 66.5,
+    "classification": "speech",
+    "features": {
+      "energy": 0.10836010426282883,
+      "spectral_rolloff": 1582.6771653543308,
+      "zero_crossing_rate": 0.06439208984375
+    }
+  },
+  {
+    "start_time": 66.5,
+    "end_time": 67.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.08855734020471573,
+      "spectral_rolloff": 1728.3464566929133,
+      "zero_crossing_rate": 0.063690185546875
+    }
+  },
+  {
+    "start_time": 67.0,
+    "end_time": 67.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.08032798767089844,
+      "spectral_rolloff": 1700.7874015748032,
+      "zero_crossing_rate": 0.066436767578125
+    }
+  },
+  {
+    "start_time": 67.5,
+    "end_time": 68.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.1131511703133583,
+      "spectral_rolloff": 1259.8425196850394,
+      "zero_crossing_rate": 0.04412841796875
+    }
+  },
+  {
+    "start_time": 68.0,
+    "end_time": 68.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07560640573501587,
+      "spectral_rolloff": 803.1496062992127,
+      "zero_crossing_rate": 0.050933837890625
+    }
+  },
+  {
+    "start_time": 68.5,
+    "end_time": 69.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.036926690489053726,
+      "spectral_rolloff": 3771.6535433070867,
+      "zero_crossing_rate": 0.2412109375
+    }
+  },
+  {
+    "start_time": 69.0,
+    "end_time": 69.5,
+    "classification": "speech",
+    "features": {
+      "energy": 0.102897509932518,
+      "spectral_rolloff": 2610.236220472441,
+      "zero_crossing_rate": 0.162109375
+    }
+  },
+  {
+    "start_time": 69.5,
+    "end_time": 70.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.04144250601530075,
+      "spectral_rolloff": 2614.173228346457,
+      "zero_crossing_rate": 0.15380859375
+    }
+  },
+  {
+    "start_time": 70.0,
+    "end_time": 70.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.08123518526554108,
+      "spectral_rolloff": 3118.1102362204724,
+      "zero_crossing_rate": 0.251251220703125
+    }
+  },
+  {
+    "start_time": 70.5,
+    "end_time": 71.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07472323626279831,
+      "spectral_rolloff": 1503.9370078740158,
+      "zero_crossing_rate": 0.12152099609375
+    }
+  },
+  {
+    "start_time": 71.0,
+    "end_time": 71.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07177547365427017,
+      "spectral_rolloff": 2673.228346456693,
+      "zero_crossing_rate": 0.188201904296875
+    }
+  },
+  {
+    "start_time": 71.5,
+    "end_time": 72.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.1076607033610344,
+      "spectral_rolloff": 799.2125984251968,
+      "zero_crossing_rate": 0.0299072265625
+    }
+  },
+  {
+    "start_time": 72.0,
+    "end_time": 72.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07862300425767899,
+      "spectral_rolloff": 854.3307086614172,
+      "zero_crossing_rate": 0.03765869140625
+    }
+  },
+  {
+    "start_time": 72.5,
+    "end_time": 73.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.08147643506526947,
+      "spectral_rolloff": 2905.511811023622,
+      "zero_crossing_rate": 0.213592529296875
+    }
+  },
+  {
+    "start_time": 73.0,
+    "end_time": 73.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.08050202578306198,
+      "spectral_rolloff": 1799.2125984251968,
+      "zero_crossing_rate": 0.111053466796875
+    }
+  },
+  {
+    "start_time": 73.5,
+    "end_time": 74.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.05426400899887085,
+      "spectral_rolloff": 3279.527559055118,
+      "zero_crossing_rate": 0.2315673828125
+    }
+  },
+  {
+    "start_time": 74.0,
+    "end_time": 74.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.05099630728363991,
+      "spectral_rolloff": 1885.8267716535433,
+      "zero_crossing_rate": 0.11285400390625
+    }
+  },
+  {
+    "start_time": 74.5,
+    "end_time": 75.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.06723465025424957,
+      "spectral_rolloff": 1692.9133858267717,
+      "zero_crossing_rate": 0.10089111328125
+    }
+  },
+  {
+    "start_time": 75.0,
+    "end_time": 75.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.05397818610072136,
+      "spectral_rolloff": 2515.748031496063,
+      "zero_crossing_rate": 0.113128662109375
+    }
+  },
+  {
+    "start_time": 75.5,
+    "end_time": 76.0,
+    "classification": "speech",
+    "features": {
+      "energy": 0.10586020350456238,
+      "spectral_rolloff": 1559.0551181102362,
+      "zero_crossing_rate": 0.09759521484375
+    }
+  },
+  {
+    "start_time": 76.0,
+    "end_time": 76.5,
+    "classification": "speech",
+    "features": {
+      "energy": 0.11428540199995041,
+      "spectral_rolloff": 1933.0708661417325,
+      "zero_crossing_rate": 0.116943359375
+    }
+  },
+  {
+    "start_time": 76.5,
+    "end_time": 77.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.06004970520734787,
+      "spectral_rolloff": 2098.425196850394,
+      "zero_crossing_rate": 0.131866455078125
+    }
+  },
+  {
+    "start_time": 77.0,
+    "end_time": 77.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.09578599780797958,
+      "spectral_rolloff": 2763.779527559055,
+      "zero_crossing_rate": 0.19390869140625
+    }
+  },
+  {
+    "start_time": 77.5,
+    "end_time": 78.0,
+    "classification": "speech",
+    "features": {
+      "energy": 0.11514207720756531,
+      "spectral_rolloff": 1736.2204724409448,
+      "zero_crossing_rate": 0.134002685546875
+    }
+  },
+  {
+    "start_time": 78.0,
+    "end_time": 78.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07000655680894852,
+      "spectral_rolloff": 3062.992125984252,
+      "zero_crossing_rate": 0.177947998046875
+    }
+  },
+  {
+    "start_time": 78.5,
+    "end_time": 79.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.06325798481702805,
+      "spectral_rolloff": 669.2913385826772,
+      "zero_crossing_rate": 0.03582763671875
+    }
+  },
+  {
+    "start_time": 79.0,
+    "end_time": 79.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07114732265472412,
+      "spectral_rolloff": 1405.5118110236222,
+      "zero_crossing_rate": 0.09405517578125
+    }
+  },
+  {
+    "start_time": 79.5,
+    "end_time": 80.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.046546876430511475,
+      "spectral_rolloff": 4165.354330708662,
+      "zero_crossing_rate": 0.276947021484375
+    }
+  },
+  {
+    "start_time": 80.0,
+    "end_time": 80.5,
+    "classification": "speech",
+    "features": {
+      "energy": 0.11295577883720398,
+      "spectral_rolloff": 1094.488188976378,
+      "zero_crossing_rate": 0.06561279296875
+    }
+  },
+  {
+    "start_time": 80.5,
+    "end_time": 81.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.11118189245462418,
+      "spectral_rolloff": 988.1889763779528,
+      "zero_crossing_rate": 0.03326416015625
+    }
+  },
+  {
+    "start_time": 81.0,
+    "end_time": 81.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.1080939769744873,
+      "spectral_rolloff": 685.0393700787401,
+      "zero_crossing_rate": 0.028289794921875
+    }
+  },
+  {
+    "start_time": 81.5,
+    "end_time": 82.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.09632229059934616,
+      "spectral_rolloff": 1019.6850393700788,
+      "zero_crossing_rate": 0.06439208984375
+    }
+  },
+  {
+    "start_time": 82.0,
+    "end_time": 82.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.05923149734735489,
+      "spectral_rolloff": 3421.2598425196848,
+      "zero_crossing_rate": 0.282318115234375
+    }
+  },
+  {
+    "start_time": 82.5,
+    "end_time": 83.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.06446881592273712,
+      "spectral_rolloff": 2834.645669291339,
+      "zero_crossing_rate": 0.2589111328125
+    }
+  },
+  {
+    "start_time": 83.0,
+    "end_time": 83.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.06479673087596893,
+      "spectral_rolloff": 2448.818897637795,
+      "zero_crossing_rate": 0.147186279296875
+    }
+  },
+  {
+    "start_time": 83.5,
+    "end_time": 84.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07276277244091034,
+      "spectral_rolloff": 3440.9448818897636,
+      "zero_crossing_rate": 0.313018798828125
+    }
+  },
+  {
+    "start_time": 84.0,
+    "end_time": 84.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07885104417800903,
+      "spectral_rolloff": 1287.4015748031497,
+      "zero_crossing_rate": 0.107177734375
+    }
+  },
+  {
+    "start_time": 84.5,
+    "end_time": 85.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07135023176670074,
+      "spectral_rolloff": 2511.8110236220473,
+      "zero_crossing_rate": 0.204986572265625
+    }
+  },
+  {
+    "start_time": 85.0,
+    "end_time": 85.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.08115044236183167,
+      "spectral_rolloff": 1968.5039370078744,
+      "zero_crossing_rate": 0.1583251953125
+    }
+  },
+  {
+    "start_time": 85.5,
+    "end_time": 86.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.10551780462265015,
+      "spectral_rolloff": 755.9055118110236,
+      "zero_crossing_rate": 0.03350830078125
+    }
+  },
+  {
+    "start_time": 86.0,
+    "end_time": 86.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.08994244039058685,
+      "spectral_rolloff": 2480.314960629921,
+      "zero_crossing_rate": 0.20391845703125
+    }
+  },
+  {
+    "start_time": 86.5,
+    "end_time": 87.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.05735310539603233,
+      "spectral_rolloff": 3952.7559055118113,
+      "zero_crossing_rate": 0.267852783203125
+    }
+  },
+  {
+    "start_time": 87.0,
+    "end_time": 87.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.08427871763706207,
+      "spectral_rolloff": 1787.4015748031497,
+      "zero_crossing_rate": 0.087371826171875
+    }
+  },
+  {
+    "start_time": 87.5,
+    "end_time": 88.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.08065272122621536,
+      "spectral_rolloff": 925.1968503937007,
+      "zero_crossing_rate": 0.03875732421875
+    }
+  },
+  {
+    "start_time": 88.0,
+    "end_time": 88.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.06886681914329529,
+      "spectral_rolloff": 787.4015748031496,
+      "zero_crossing_rate": 0.038360595703125
+    }
+  },
+  {
+    "start_time": 88.5,
+    "end_time": 89.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.0774589255452156,
+      "spectral_rolloff": 1507.8740157480315,
+      "zero_crossing_rate": 0.074066162109375
+    }
+  },
+  {
+    "start_time": 89.0,
+    "end_time": 89.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.05793159827589989,
+      "spectral_rolloff": 976.3779527559055,
+      "zero_crossing_rate": 0.069671630859375
+    }
+  },
+  {
+    "start_time": 89.5,
+    "end_time": 90.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07904287427663803,
+      "spectral_rolloff": 3397.63779527559,
+      "zero_crossing_rate": 0.283905029296875
+    }
+  },
+  {
+    "start_time": 90.0,
+    "end_time": 90.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.11550099402666092,
+      "spectral_rolloff": 1098.4251968503936,
+      "zero_crossing_rate": 0.04119873046875
+    }
+  },
+  {
+    "start_time": 90.5,
+    "end_time": 91.0,
+    "classification": "silence",
+    "features": {
+      "energy": 0.007836713455617428,
+      "spectral_rolloff": 3196.850393700787,
+      "zero_crossing_rate": 0.172607421875
+    }
+  },
+  {
+    "start_time": 91.0,
+    "end_time": 91.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.036251310259103775,
+      "spectral_rolloff": 1822.8346456692916,
+      "zero_crossing_rate": 0.154296875
+    }
+  },
+  {
+    "start_time": 91.5,
+    "end_time": 92.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.08683399856090546,
+      "spectral_rolloff": 2098.425196850394,
+      "zero_crossing_rate": 0.154693603515625
+    }
+  },
+  {
+    "start_time": 92.0,
+    "end_time": 92.5,
+    "classification": "speech",
+    "features": {
+      "energy": 0.10753685235977173,
+      "spectral_rolloff": 889.7637795275591,
+      "zero_crossing_rate": 0.0675048828125
+    }
+  },
+  {
+    "start_time": 92.5,
+    "end_time": 93.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07310187071561813,
+      "spectral_rolloff": 2531.496062992126,
+      "zero_crossing_rate": 0.21124267578125
+    }
+  },
+  {
+    "start_time": 93.0,
+    "end_time": 93.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.11817231774330139,
+      "spectral_rolloff": 1141.732283464567,
+      "zero_crossing_rate": 0.047637939453125
+    }
+  },
+  {
+    "start_time": 93.5,
+    "end_time": 94.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07191433012485504,
+      "spectral_rolloff": 1232.283464566929,
+      "zero_crossing_rate": 0.049591064453125
+    }
+  },
+  {
+    "start_time": 94.0,
+    "end_time": 94.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.04660343751311302,
+      "spectral_rolloff": 1826.771653543307,
+      "zero_crossing_rate": 0.0772705078125
+    }
+  },
+  {
+    "start_time": 94.5,
+    "end_time": 95.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.05910728499293327,
+      "spectral_rolloff": 1661.4173228346458,
+      "zero_crossing_rate": 0.082183837890625
+    }
+  },
+  {
+    "start_time": 95.0,
+    "end_time": 95.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.10502221435308456,
+      "spectral_rolloff": 1059.0551181102364,
+      "zero_crossing_rate": 0.048309326171875
+    }
+  },
+  {
+    "start_time": 95.5,
+    "end_time": 96.0,
+    "classification": "speech",
+    "features": {
+      "energy": 0.10969281941652298,
+      "spectral_rolloff": 1484.251968503937,
+      "zero_crossing_rate": 0.119903564453125
+    }
+  },
+  {
+    "start_time": 96.0,
+    "end_time": 96.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.04968705028295517,
+      "spectral_rolloff": 2732.283464566929,
+      "zero_crossing_rate": 0.27789306640625
+    }
+  },
+  {
+    "start_time": 96.5,
+    "end_time": 97.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.036481838673353195,
+      "spectral_rolloff": 4204.72440944882,
+      "zero_crossing_rate": 0.2672119140625
+    }
+  },
+  {
+    "start_time": 97.0,
+    "end_time": 97.5,
+    "classification": "speech",
+    "features": {
+      "energy": 0.11889573931694031,
+      "spectral_rolloff": 1881.8897637795276,
+      "zero_crossing_rate": 0.122283935546875
+    }
+  },
+  {
+    "start_time": 97.5,
+    "end_time": 98.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.10677000135183334,
+      "spectral_rolloff": 905.511811023622,
+      "zero_crossing_rate": 0.037078857421875
+    }
+  },
+  {
+    "start_time": 98.0,
+    "end_time": 98.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.08971010148525238,
+      "spectral_rolloff": 968.5039370078741,
+      "zero_crossing_rate": 0.03277587890625
+    }
+  },
+  {
+    "start_time": 98.5,
+    "end_time": 99.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.08529125899076462,
+      "spectral_rolloff": 3279.527559055118,
+      "zero_crossing_rate": 0.20416259765625
+    }
+  },
+  {
+    "start_time": 99.0,
+    "end_time": 99.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07031060755252838,
+      "spectral_rolloff": 3082.677165354331,
+      "zero_crossing_rate": 0.25592041015625
+    }
+  },
+  {
+    "start_time": 99.5,
+    "end_time": 100.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.06960714608430862,
+      "spectral_rolloff": 3307.0866141732286,
+      "zero_crossing_rate": 0.295440673828125
+    }
+  },
+  {
+    "start_time": 100.0,
+    "end_time": 100.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.03586914390325546,
+      "spectral_rolloff": 4125.984251968504,
+      "zero_crossing_rate": 0.28082275390625
+    }
+  },
+  {
+    "start_time": 100.5,
+    "end_time": 101.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.11717799305915833,
+      "spectral_rolloff": 1007.8740157480315,
+      "zero_crossing_rate": 0.035980224609375
+    }
+  },
+  {
+    "start_time": 101.0,
+    "end_time": 101.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.06810695677995682,
+      "spectral_rolloff": 1980.3149606299214,
+      "zero_crossing_rate": 0.1134033203125
+    }
+  },
+  {
+    "start_time": 101.5,
+    "end_time": 102.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.03580513969063759,
+      "spectral_rolloff": 1074.8031496062995,
+      "zero_crossing_rate": 0.0408935546875
+    }
+  },
+  {
+    "start_time": 102.0,
+    "end_time": 102.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.06694537401199341,
+      "spectral_rolloff": 1988.1889763779527,
+      "zero_crossing_rate": 0.123687744140625
+    }
+  },
+  {
+    "start_time": 102.5,
+    "end_time": 103.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.08499537408351898,
+      "spectral_rolloff": 1669.291338582677,
+      "zero_crossing_rate": 0.083953857421875
+    }
+  },
+  {
+    "start_time": 103.0,
+    "end_time": 103.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07561798393726349,
+      "spectral_rolloff": 1940.9448818897638,
+      "zero_crossing_rate": 0.160980224609375
+    }
+  },
+  {
+    "start_time": 103.5,
+    "end_time": 104.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.07411623746156693,
+      "spectral_rolloff": 1519.6850393700788,
+      "zero_crossing_rate": 0.14373779296875
+    }
+  },
+  {
+    "start_time": 104.0,
+    "end_time": 104.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.06409049779176712,
+      "spectral_rolloff": 1822.8346456692914,
+      "zero_crossing_rate": 0.1053466796875
+    }
+  },
+  {
+    "start_time": 104.5,
+    "end_time": 105.0,
+    "classification": "hum",
+    "features": {
+      "energy": 0.061435382813215256,
+      "spectral_rolloff": 2625.984251968504,
+      "zero_crossing_rate": 0.16815185546875
+    }
+  },
+  {
+    "start_time": 105.0,
+    "end_time": 105.5,
+    "classification": "hum",
+    "features": {
+      "energy": 0.08287403732538223,
+      "spectral_rolloff": 2354.3307086614172,
+      "zero_crossing_rate": 0.16790771484375
+    }
+  }
+]

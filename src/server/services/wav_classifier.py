@@ -12,11 +12,12 @@ def five_sampling_classifier(video_id, wav_path):
         hop_sec = frame_sec / hop_ratio
         args = argparse.Namespace()
         args.audio = wav_path
-        args.model_path = CONFIG_MODEL_PATH
-        args.model_sr = 16000
+        args.model_path = os.path.abspath(CONFIG_MODEL_PATH)
+        args.model_sr = CONFIG_AUDIO_SR
         args.frame_sec = frame_sec
         args.hop_sec = hop_sec
-        classification_path = os.path.expanduser(CONFIG_CLASSIFICATIONS_CACHE + video_id + "/classification_"+str(int(frame_sec*100))+"ms.json")
+        args.merge_tol = CONFIG_MERGING_TOLERANCE
+        classification_path = CONFIG_CLASSIFICATIONS_CACHE + video_id + "/classification_"+str(int(frame_sec*100))+"ms.json"
         os.makedirs(classification_path, exist_ok=True)
         
         classification = segment_audio_humaware.execute(args)

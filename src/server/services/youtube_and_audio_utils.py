@@ -25,7 +25,7 @@ def init_video_cache():
 
 def get_cached_video(video_id):
     cache_path_wav = CONFIG_VIDEO_CACHE + video_id + ".wav"
-    cache_path_wav = os.path.expanduser(cache_path_wav)
+    cache_path_wav = cache_path_wav
     if os.path.exists(cache_path_wav):
         print(f"Found cached WAV for video ID {video_id}")
         video_duration = ffmpeg.probe(cache_path_wav)['format']['duration']
@@ -39,6 +39,7 @@ def youtube_dl_wav(video_url, video_id=None):
     wav_path, video_duration = get_cached_video(video_id)
     if wav_path:
         return wav_path, video_duration
+      
     init_video_cache()
     cache_path = CONFIG_VIDEO_CACHE + video_id
     # Download audio as best quality m4a (no video)
@@ -60,17 +61,16 @@ def youtube_dl_wav(video_url, video_id=None):
         'cookiefile': 'src/server/fake_youtube_cookies.txt',
     }
     video_duration = -1
-    cache_m4a = os.path.expanduser(cache_path + ".m4a")
-    cache_wav = os.path.expanduser(cache_path + ".wav")
-    
+    cache_m4a = cache_path + ".m4a"
+    cache_wav = cache_path + ".wav"
+
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         ydl.download([video_url])
     print(f"[Extract Audio] Downloaded audio to {cache_m4a}")
-        # Convert temp_audio.m4a to WAV using ffmpeg-python
-        
-    ffmpeg.input(cache_m4a).output(cache_wav, format='wav').run(overwrite_output=True)
+    # Convert temp_audio.m4a to WAV using ffmpeg-python, set sample rate to 16kHz
+    ffmpeg.input(cache_m4a).output(cache_wav, format='wav', ar=CONFIG_AUDIO_SR).run(overwrite_output=True)
     print(f"[Extract Audio] Converted to WAV: {cache_wav}")
     # os.remove(cache_path+".m4a")
-    video_duration = ffmpeg.probe(cache_wav + "")['format']['duration']
+    video_duration = ffmpeg.probe(cache_wav)['format']['duration']
     print(f"[Extract Audio] WAV file saved as {cache_wav}")
     return cache_wav, video_duration

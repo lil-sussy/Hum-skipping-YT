@@ -27,7 +27,7 @@ import json
 import math
 import os
 from typing import List, Dict, Tuple, Optional
-
+from config import *
 import numpy as np
 import soundfile as sf
 
@@ -115,33 +115,33 @@ def load_audio_mono(path: str, target_fs: Optional[int] = None) -> Tuple[np.ndar
 def frame_generator(waveform: np.ndarray, sr: int, frame_sec: float, hop_sec: float):
     """
     Yield frames with metadata.
-
     Yields tuples:
       (frame_index, frame_np: np.ndarray, start_sample, end_sample, start_time, end_time)
     """
-    frame_samples = int(round(frame_sec * sr))
-    hop_samples = int(round(hop_sec * sr))
-    total_samples = waveform.shape[0]
+    frame_sample_length = int(round(frame_sec * sr))
+    hop_sample_length = int(round(hop_sec * sr))
+    total_sample_length = waveform.shape[0]
+    
     # number of frames (include last partial frame if it has at least 1 sample)
-    if total_samples <= 0:
+    if total_sample_length <= 0:
         return
-    n_frames = max(1, 1 + (total_samples - frame_samples + hop_samples - 1) // hop_samples) \
-        if total_samples > frame_samples else 1
+    n_frames = max(1, 1 + (total_sample_length - frame_sample_length + hop_sample_length - 1) // hop_sample_length) \
+        if total_sample_length > frame_sample_length else 1
 
     for i in range(n_frames):
-        start = i * hop_samples
-        end = start + frame_samples  # exclusive
+        start = i * hop_sample_length
+        end = start + frame_sample_length  # exclusive
         # Clip to array bounds
-        if start >= total_samples:
+        if start >= total_sample_length:
             break
-        frame = waveform[start:min(end, total_samples)]
+        frame = waveform[start:min(end, total_sample_length)]
         # If last frame is shorter than frame_samples, optionally pad with zeros for model input
-        if frame.shape[0] < frame_samples:
-            pad_width = frame_samples - frame.shape[0]
+        if frame.shape[0] < frame_sample_length:
+            pad_width = frame_sample_length - frame.shape[0]
             frame = np.pad(frame, (0, pad_width), mode="constant", constant_values=0.0)
         start_time = start / sr
-        end_time = min(end, total_samples) / sr
-        yield i, frame, start, min(end, total_samples), start_time, end_time
+        end_time = min(end, total_sample_length) / sr
+        yield i, frame, start, min(end, total_sample_length), start_time, end_time
 
 
 # -----------------------------
@@ -155,7 +155,7 @@ class ModelRunner:
     where start/end are relative to frame (seconds).
     """
 
-    def __init__(self, model_path: Optional[str] = None, model_sample_rate: int = 16000):
+    def __init__(self, model_path: Optional[str] = None, model_sample_rate: int = CONFIG_AUDIO_SR):
         self.model_path = model_path
         self.sr = model_sample_rate
         self.torchscript = None
@@ -199,7 +199,7 @@ class ModelRunner:
             # Many audio models expect shape [1, n_samples] float32
             wav = torch.from_numpy(frame).unsqueeze(0)  # 1 x n
             with torch.no_grad():
-                out = self.torchscript(wav)  # model-specific output
+                out = self.torchscript(wav, sr)  # model-specific output
             # Heuristic post-processing:
             # If out is a dict-like with 'probs' or 'logits', adapt accordingly.
             # Here we try to handle some common shapes. IMPORTANT: adapt to your model.

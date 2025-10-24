@@ -67,6 +67,7 @@ from typing import Dict, Optional
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from config import *
 import services.youtube_and_audio_utils as yt
 
 app = FastAPI(title="HumSkip Local Inference Server (Prototype)")
@@ -114,7 +115,7 @@ def run_processing_sync(video_url: str, video_id: str, out_json_path: str, job_u
     output = {
         "video_id": video_id,
         "duration": video_duration,
-        "sample_rate": 16000,
+        "sample_rate": CONFIG_AUDIO_SR,
         "segments": [
             {"label": seg[2], "start": seg[0], "end": seg[1], "score": "merged"}
             for seg in final_timeline
